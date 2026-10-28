@@ -1,18 +1,14 @@
-def is_palindrome_pointer(s):
-    s = str(s).lower()
-    left, right = 0, len(s) - 1
-    
-    while left < right:
-        if s[left] != s[right]:
-            return False
-        left += 1
-        right -= 1
-        
-    return True
+import sys
 
-user_input = input("Enter a word or number to check: ")
+if len(sys.argv) < 2:
+    sys.exit(1)
 
-if is_palindrome_pointer(user_input):
-    print(f"'{user_input}' is a palindrome!")
+original = sys.argv[1]   
+reversed_input = original[::-1]
+
+print("The reversed value is =", reversed_input)
+
+if original == reversed_input:
+    print("It is a palindrome")
 else:
-    print(f"'{user_input}' is NOT a palindrome.")
+    print("It is not a palindrome")
